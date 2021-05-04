@@ -11,3 +11,9 @@ Preference.belongsToMany(User, {
     through: UserPreference,
     foreignKey: user_id,
 });
+
+module.exports = {
+    User,
+    Preference,
+    UserPreference,
+  };
