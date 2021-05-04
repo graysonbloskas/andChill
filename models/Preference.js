@@ -53,3 +53,5 @@ Preference.init(
     modelName: "preference",
   }
 );
+
+module.exports = Preference;
