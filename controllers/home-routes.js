@@ -13,4 +13,12 @@ router.get('/profiles', async (req, res) => {
     res.render('viewprofiles', {layout: "dashboard.handlebars"})
 });
 
+router.get('/quiz', async (req, res) => {
+    res.render('quiz', {layout: "dashboard.handlebars"})
+});
+
+router.get('/settings', async (req, res) => {
+    res.render('quiz', {layout: "dashboard.handlebars"})
+});
+
 module.exports = router;
