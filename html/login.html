@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="../public/css/login.css">
-    <title>&Chill</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css"
+    />
+    <link rel="stylesheet" href="./stylesheet/style.css" />
+    <title>Document</title>
+  </head>
+  <div
+    class="uk-flex-middle uk-background-cover uk-light main-background"
+    data-src="./assets/images/couple.jpg"
+    uk-img
+  >
+    <main>
+        
+      <form class="uk-position-center uk-text-center">
+        <h2>Take the plot twists out of dating! Join &Chill today!</h2>
 
-<body class="uk-flex-middle uk-background-cover uk-light" data-src="../assets/images/couple.jpg" uk-img>
-    <h2>
-        &Chill
-    </h2>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span
+              class="uk-form-icon"
+              uk-icon="icon: user"
+              placeholder="Email"
+            ></span>
+            <input class="uk-input" type="text" />
+          </div>
+        </div>
 
-    <h3>
-        GET RID OF THE PLOT TWISTS. SIGN UP FOR &CHILL TODAY
-    </h3>
-    <div>
-    <button type="button">SIGN UP</button>
-    <button type="button">SIGN IN</button>
-</div>
-</main>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span
+              class="uk-form-icon uk-form-icon-flip"
+              uk-icon="icon: lock"
+              placeholder="Password"
+            ></span>
+            <input class="uk-input" type="text" />
+          </div>
+        </div>
+        <p uk-margin>
+          <button class="uk-button uk-button-default">ENTER</button>
+          <br><br>
+          <button class="uk-button uk-button-text custom-signup">Don't have an account? Sign Up Now!</button>
+        </p>
+    </form>
+
+
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit-icons.min.js"></script>  
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit-icons.min.js"></script>
+</div>
 </html>
