@@ -2,7 +2,7 @@
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require('bcrypt');
 const sequelize = require("../config/connection");
-const { beforeCreate } = require("../config/connection");
+
 
 //check password?
 class User extends Model {}
