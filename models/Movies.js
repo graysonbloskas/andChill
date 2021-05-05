@@ -5,7 +5,7 @@ class Movies extends Model {}
 
 Movies.init(
     {
-      id: {
+      movie_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
@@ -18,15 +18,22 @@ Movies.init(
       },
       
       genre: {
-          type: DataTypes.STRING,
-          allowNull: false,
+        type: Sequelize.STRING,
+        allowNull: false,
+        get() {
+            return this.getDataValue('genre').split(',')
+        },
+        set(val) {
+           this.setDataValue('genre',val.join(','));
+        },
+    
       },
       },
       {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'gallery',
+        modelName: 'movies',
       }
     );
 
