@@ -12,7 +12,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    padding-top: 200px;
+    padding-top: 150px;
 }
 h1 {
     display: flex;
@@ -28,4 +28,22 @@ h1 {
 #joinbutton {
     width: 10rem;
     margin-top: 2rem;
+}
+
+#signupform {
+    background-color: rgb(221, 221, 221, 0.7);
+    border-radius: 30px;
+    padding: 30px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo {
+    width: 200px;
+    height: 200px;
+    padding-left: 20px;
+    padding-top: 20px;
 }
