@@ -26,6 +26,8 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+//"This is whipped cream in coffee goin on right here" -John "Class Instructor" Dinsmore
+//Add static assets to the public folder so all files should start as though they come from the public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
