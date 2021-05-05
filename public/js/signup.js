@@ -36,7 +36,7 @@ const signupFormHandler = async (event) => {
     // }
 };
 
-// submitBtn.addEventListener('click', function(){document.location.replace('/dashboard')});
+submitBtn.addEventListener('click', function(){document.location.replace('/dashboard')});
 
 document
     .querySelector('#signupform')

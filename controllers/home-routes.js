@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Movies, Preference, Match } = require('../models')
 //require users
 
 router.get('/', async (req, res) => {

@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS chill_db;
-CREATE database chill_DB;
+CREATE database chill_db;
 
-USE chill_DB;
+USE chill_db;
 
 CREATE TABLE movies (
   id INT NOT NULL,
