@@ -20,8 +20,6 @@ Match.belongsTo(User, {
 
 // Need to add hasMany function for Movies
 
-Match.belongs
-
 module.exports = {
     User,
     Preference,
