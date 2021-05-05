@@ -21,7 +21,7 @@
             </div>
 
             <br>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" id="genderId">
                 <option selected>What is your gender identity?</option>
                 <option value="1">Female</option>
                 <option value="2">Male</option>
@@ -33,7 +33,7 @@
                 <option value="8">Prefer Not to Say</option>
             </select>
             <br>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" id="genderPref">
                 <option selected>Who are you looking for?</option>
                 <option value="1">Female</option>
                 <option value="2">Male</option>
@@ -47,8 +47,10 @@
             <br>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Tell us a little bit about yourself!</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="bioInput" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
         </form>
 </main>
+
+<script src="/js/signup.js"></script>
