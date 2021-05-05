@@ -18,7 +18,7 @@ Movies.init(
       },
       
       genre: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         get() {
             return this.getDataValue('genre').split(',')

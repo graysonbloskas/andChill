@@ -5,20 +5,20 @@ const Match = require('./Match');
 const Movies = require('./Movies');
 
 User.hasOne(Preference, {
-    foreignKey: user_id,
+    foreignKey: 'user_id',
 });
 Preference.belongsTo(User, {
-    foreignKey: user_id,
+    foreignKey: 'user_id',
 });
 
 User.hasMany(Match, {
-    foreignKey: user_id,
+    foreignKey: 'user_id',
 });
 Match.belongsTo(User, {
-    foreignKey: user_id,
+    foreignKey: 'user_id',
 });
 
-// Need to add hasMany function for Movies
+// Need to add function for Movies
 
 module.exports = {
     User,
