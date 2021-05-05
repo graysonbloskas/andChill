@@ -5,6 +5,10 @@ router.get('/', async (req, res) => {
     res.render('homepage', {layout: "main.handlebars"})
 });
 
+router.get('/signup', async (req, res) => {
+    res.render('signup', {layout: "main.handlebars"})
+});
+
 router.get('/dashboard', async (req, res) => {
     res.render('maindash', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn })
 });
