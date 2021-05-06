@@ -1,6 +1,10 @@
 submitBtn = document.getElementById("submitBtn");
 
+// var moment = require('moment');
 
+// moment().format();
+
+// console.log(moment);
 
 
 const signupFormHandler = async (event) => {
@@ -21,9 +25,23 @@ const signupFormHandler = async (event) => {
     console.log(genderId);
     console.log(genderPref);
     console.log(bio);
-    
+
     //Age stuff goes here
     //const age = .............
+    function getAge(dateString) {
+        var today = new Date();
+        console.log(today);
+        var birthDate = new Date(dateString);
+        console.log(birthDate);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
+    getAge();
 
     //send age instead of bday below
 
@@ -36,13 +54,13 @@ const signupFormHandler = async (event) => {
         if (response.ok) {
             console.log(response);
             document.location.replace('/dashboard')
-        }else {
+        } else {
             alert('Failed to sign up');
         }
     }
 };
 
-submitBtn.addEventListener('click', function(){document.location.replace('/dashboard')});
+submitBtn.addEventListener('click', function () { document.location.replace('/dashboard') });
 
 document
     .querySelector('#signupform')
