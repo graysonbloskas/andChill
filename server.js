@@ -10,6 +10,9 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 
+//sets global variable to be able to call the base directory from anywhere in document
+global.__basedir = __dirname;
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
