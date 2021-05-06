@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const uploadController = require("../image-upload");
+const upload = require("../../middleware/img.upload");
 
 //Create new user
 router.post('/', async (req, res) => {
@@ -28,6 +30,9 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.post("/upload", upload.single("file"), uploadController.uploadFiles);
+
 
 //Login
 router.post('/dashboard', async (req, res) => {
