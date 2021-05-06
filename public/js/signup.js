@@ -1,11 +1,5 @@
 submitBtn = document.getElementById("submitBtn");
 
-// var moment = require('moment');
-
-// moment().format();
-
-// console.log(moment);
-
 
 const signupFormHandler = async (event) => {
     event.preventDefault();
@@ -58,13 +52,7 @@ const signupFormHandler = async (event) => {
         return age;
     }
     
-
-
     getAge();
-
-    
-
-    //send age instead of bday below
 
     if (email && password && name && age && genderId && genderPref && bio) {
         const response = await fetch('/api/users', {
