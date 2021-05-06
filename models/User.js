@@ -68,6 +68,18 @@ User.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    genre: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    fav_movie: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    movie_quote: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
   },
   {
     hooks: {

@@ -19,14 +19,14 @@ const signupFormHandler = async (event) => {
         });
         if (response.ok) {
             console.log(response);
-            document.location.replace('/dashboard')
+            document.location.replace('/signupimg')
         }else {
             alert('Failed to sign up');
         }
     }
 };
 
-movieBtn.addEventListener('click', function(){document.location.replace('/dashboard')});
+// movieBtn.addEventListener('click', function(){document.location.replace('/dashboard')});
 
 document
     .querySelector('#movieform')
