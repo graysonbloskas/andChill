@@ -11,6 +11,9 @@ router.get('/signup', async (req, res) => {
 });
 
 //Movie choice here
+router.get('/signupmov', async (req, res) => {
+    res.render('moviepreference', {layout: "main.handlebars"})
+});
 
 //Image upload here
 router.get("/signupimg", async (req, res) => {
