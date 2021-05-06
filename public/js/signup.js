@@ -40,10 +40,13 @@ const signupFormHandler = async (event) => {
     var dob = newBday;
     //The year is the first FOUR digits of newBday
     var year = Number(dob.substr(0, 4));
+    console.log(year);
     //The month is the 2 digits starting at the 4th position
-    var month = Number(dob.substr(4, 2)) - 1;
+    var month = Number(dob.substr(4, 2));
+    console.log(month);
     //The date is the 2 digits starting at the 6th position
     var day = Number(dob.substr(6, 2));
+    console.log(day);
     //Get today's date
     var today = new Date();
     //The age will be today's year minus the year that we are defining from the above refactor
@@ -54,7 +57,6 @@ const signupFormHandler = async (event) => {
         console.log(age);
         return age;
     }
-    //Alert the age WE WANT TO RETURN THE AGE
     
 
 
