@@ -5,11 +5,18 @@ const upload = require("../../middleware/img.upload");
 
 //Create new user
 router.post('/', async (req, res) => {
+    console.log(req.body)
     try {
+        
         const dbUserData = await User.create({
-            username: req.body.username,
+            //UPDATE THIS
             email: req.body.email,
             password: req.body.password,
+            first_name: req.body.name,
+            age: req.body.age,
+            gender_id: req.body.genderId,
+            gender_pref: req.body.genderPref,
+            bio: req.body.bio,
             //Need to add more parameters here based on the models
         });
 

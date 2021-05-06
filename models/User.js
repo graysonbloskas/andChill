@@ -1,6 +1,9 @@
 // Create User model
 
+
 const { Model, DataTypes } = require('sequelize');
+
+
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
@@ -8,8 +11,8 @@ const sequelize = require('../config/connection');
 //check password?
 class User extends Model {
   checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
+  return bcrypt.compareSync(loginPw, this.password);
+}
 }
 
 //model for basic user information
@@ -20,15 +23,6 @@ User.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: {
-        args: true,
-        //custom error message
-        msg: "Username has already been taken",
-      },
     },
     email: {
       type: DataTypes.STRING,
@@ -52,10 +46,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     age: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -66,12 +56,16 @@ User.init(
         },
       },
     },
-    sex: {
-      type: DataTypes.STRING,
+    gender_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    location: {
-      type: DataTypes.STRING,
+    gender_pref: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    bio: {
+      type: DataTypes.TEXT,
       allowNull: false,
     },
   },
@@ -80,14 +74,14 @@ User.init(
       async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
-      },
+      }
     },
 
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: 'user',
   }
 );
 

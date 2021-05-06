@@ -1,0 +1,37 @@
+ <main>
+ <form id="movieform">
+     <select class="form-select" aria-label="Default select example" id="genreInput">
+                <option selected>What are your top 3 favorite Movie Genres?</option>
+                <option value="1">Action</option>
+                <option value="2">Adventure</option>
+                <option value="3">Drama</option>
+                <option value="4">Thriller</option>
+                <option value="5">War</option>
+                <option value="6">Romance</option>
+                <option value="7">Comedy</option>
+                <option value="8">Crime</option>
+                <option value="9">Biography</option>
+                <option value="10">Music</option>
+                <option value="11">Animation</option>
+                <option value="12">Family</option>
+                <option value="13">Documentary</option>
+                {{!-- add 3 limit restraint, append options to the page --}}
+            </select>
+
+            <br> 
+
+            <div class="mb-3">
+                <label for="" class="form-label">What are your Top Three favorite movies?</label>
+                <input type="text" class="form-control" id="favMovieInput" aria-describedby="movieHelp">
+                {{!-- 3 limit constraint, add autofill --}}
+            </div>
+            
+            <br>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">What is your favorite Movie Quote?</label>
+                <textarea class="form-control" id="quoteInput" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="movieBtn">Submit</button>
+        </form>
+
+</main>

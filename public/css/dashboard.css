@@ -1,0 +1,62 @@
+/* .notification-bar {
+    background-color: yellow;
+} */
+
+.dash-box {
+    color:#313437;
+    background-color:#f0f1f2;
+  }
+  /* @media (max-width:768px) {
+    .dash-box h2 {
+      margin-bottom:25px;
+      padding-top:25px;
+      font-size:24px;
+    }
+  }  */
+  .dash-box .match {
+    padding:25px 0;
+  }
+  .dash-box .card-item .box {
+    text-align:center;
+    padding:15px;
+    background-color:#fff;
+    margin-bottom:0px;
+  }
+  .dash-box .card-item .name {
+    font-weight:bold;
+    margin-top:10px;
+    margin-bottom:10px;
+    color:inherit;
+  }
+  .dash-box .card-item img {
+    max-width:160px;
+  }
+  /* For mobile phones: */
+  /* @media only screen and (max-width: 768px) {
+    
+    [class*="col-"] {
+      width: 100%;
+    }
+    .userbar {
+      width: 95%;
+      margin: auto;
+      margin-left: 2rem;
+      display: block;
+    }
+    .img-fluid {
+      width: 60%;
+      margin: auto;
+      display: block
+    }
+  }
+@media only screen and (min-width: 600px) {
+
+    [class*="col-"] {
+      width: 70%;
+      margin-left: 4rem;
+    }
+    .card {
+      width: 100%;
+      height: 50%;
+    }
+  }  */

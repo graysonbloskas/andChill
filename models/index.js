@@ -17,6 +17,7 @@ User.hasMany(Match, {
 });
 Match.belongsTo(User, {
     foreignKey: 'user_id',
+
 });
 
 User.hasMany(Image,  {
@@ -24,9 +25,11 @@ User.hasMany(Image,  {
 });
 Image.belongsTo(User, {
     foreignKey: 'user_id',
+
+
 });
 
-// Need to add hasMany function for Movies
+// Need to add function for Movies
 
 module.exports = {
     User,

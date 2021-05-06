@@ -1,0 +1,36 @@
+.dash-box {
+    color:#313437;
+    background-color:#eef4f7;
+  }
+
+  @media (max-width:767px) {
+    .dash-box h2 {
+      margin-bottom:25px;
+      padding-top:25px;
+      font-size:24px;
+    }
+  }
+
+  .dash-box .match {
+    padding:50px 0;
+  }
+  
+  .dash-box .card-item .box {
+    text-align:center;
+    padding:30px;
+    background-color:#fff;
+    margin-bottom:30px;
+  }
+  
+  .dash-box .card-item .name {
+    font-weight:bold;
+    margin-top:28px;
+    margin-bottom:8px;
+    color:inherit;
+  }
+
+  .dash-box .card-item img {
+    max-width:160px;
+  }
+  
+  
