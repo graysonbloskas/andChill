@@ -3,7 +3,6 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 
-
 const routes = require('./controllers');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -35,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 //"This is whipped cream in coffee goin on right here" -John "Class Instructor" Dinsmore
 //Add static assets to the public folder so all files should start as though they come from the public folder
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use('/js', express.static(__dirname + '/node_modules/moment/dist'));
 
 app.use(routes);
 
