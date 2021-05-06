@@ -22,18 +22,24 @@ const signupFormHandler = async (event) => {
     console.log(genderPref);
     console.log(bio);
     
-    // if (email && password && name) {
-    //     const response = await fetch('/api/users', {
-    //         method: 'POST',
-    //         body: JSON.stringify({ email, password, name }),
-    //         headers: { 'Content-Type': 'application/json' },
-    //     });
-    //     if (response.ok) {
-    //         document.location.replace('/dashboard')
-    //     }else {
-    //         alert('Failed to sign up');
-    //     }
-    // }
+    //Age stuff goes here
+    //const age = .............
+
+    //send age instead of bday below
+
+    if (email && password && name && bday && genderId && genderPref && bio) {
+        const response = await fetch('/api/users', {
+            method: 'POST',
+            body: JSON.stringify({ email, password, name, bday, genderId, genderPref, bio }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log(response);
+            document.location.replace('/dashboard')
+        }else {
+            alert('Failed to sign up');
+        }
+    }
 };
 
 submitBtn.addEventListener('click', function(){document.location.replace('/dashboard')});
