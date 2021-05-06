@@ -16,15 +16,6 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: {
-        args: true,
-        //custom error message
-        msg: "Username has already been taken",
-      },
-    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -47,13 +38,9 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     age: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
         min: {
             args: 18,
@@ -61,13 +48,17 @@ User.init(
         },
       },
     },
-    sex: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    gender_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
-    location: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    gender_pref: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    bio: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
   },
   // {
