@@ -44,7 +44,7 @@ User.init(
     },
     age: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       validate: {
         min: {
             args: 18,
@@ -54,15 +54,15 @@ User.init(
     },
     gender_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
     gender_pref: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
     bio: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
     },
   },
   {
