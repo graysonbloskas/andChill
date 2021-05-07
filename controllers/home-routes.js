@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Movies, Preference, Match } = require('../models')
+const { User, Movies, Preference, Match } = require('../models')
 //require users
 
 router.get('/', async (req, res) => {
@@ -21,7 +21,9 @@ router.get("/signupimg", async (req, res) => {
 });
 
 router.get('/dashboard', async (req, res) => {
-    res.render('maindash', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn })
+    console.log(req.session.user);
+    
+    res.render('maindash', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user })
 });
 
 // renders the liked profiles
