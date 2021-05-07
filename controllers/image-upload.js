@@ -1,7 +1,6 @@
 const fs = require("fs");
 
-const db = require("../models");
-const Image = db.images;
+const { Image, User } = require('../models');
 
 const uploadFiles = async (req, res) => {
   try {
@@ -20,6 +19,7 @@ const uploadFiles = async (req, res) => {
       data: fs.readFileSync(
         __basedir + "/assets/uploads/" + req.file.filename
       ),
+      user_id: User.id,
     }).then((image) => {
       //save write the image data to tmp folder
       fs.writeFileSync(
