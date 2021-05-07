@@ -86,7 +86,7 @@ router.post('/logout', (req, res) => {
 
 //get all users
 router.get( '/users', async (req, res) => {
-    User.findAll.then(users => {
+    User.findAll().then(users => {
         res.json(users);
     }) 
 })
