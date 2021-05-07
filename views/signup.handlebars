@@ -1,57 +1,94 @@
 <main>
-    <form id="signupform" class="signup-form">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="passwordInput">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputName1" class="form-label">What is your first name?</label>
-                <input type="name" class="form-control" id="nameInput">
-            </div>
+    <form id="signupform">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="passwordInput">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputName1" class="form-label">What is your first name?</label>
+            <input type="name" class="form-control" id="nameInput">
+        </div>
 
-            <div class="nativeDatePicker">
-                <label for="bday">Enter your birthday:</label>
-                <input type="date" id="bday" name="bday" min="1960-01-01" max="2003-5-5">
-                <span class="validity"></span>
-            </div>
+        <div class="nativeDatePicker">
+            <label for="bday">Enter your birthday:</label>
+            <input type="date" id="bday" name="bday" min="1960-01-01" max="2003-5-5">
+            <span class="validity"></span>
+        </div>
 
-            <br>
-            <select class="form-select" aria-label="Default select example" id="genderId">
-                <option selected>What is your gender identity?</option>
-                <option value="1">Female</option>
-                <option value="2">Male</option>
-                <option value="3">Trans Female</option>
-                <option value="4">Trans Male</option>
-                <option value="5">Transgender</option>
-                <option value="6">Gender Nonconforming</option>
-                <option value="7">Non-Binary</option>
-                <option value="8">Prefer Not to Say</option>
-            </select>
-            <br>
-            <select class="form-select" aria-label="Default select example" id="genderPref">
-                <option selected>Who are you looking for?</option>
-                <option value="1">Female</option>
-                <option value="2">Male</option>
-                <option value="3">Trans Female</option>
-                <option value="4">Trans Male</option>
-                <option value="5">Transgender</option>
-                <option value="6">Gender Nonconforming</option>
-                <option value="7">Non-Binary</option>
-                <option value="8">Prefer Not to Say</option>
-            </select>
-            <br>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Tell us a little bit about yourself!</label>
-                <textarea class="form-control" id="bioInput" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
-        </form>
+        <br>
+        <select class="form-select" aria-label="Default select example" id="genderId">
+            <option selected>What is your gender identity?</option>
+            <option value="1">Female</option>
+            <option value="2">Male</option>
+            <option value="3">Trans Female</option>
+            <option value="4">Trans Male</option>
+            <option value="5">Transgender</option>
+            <option value="6">Gender Nonconforming</option>
+            <option value="7">Non-Binary</option>
+            <option value="8">Prefer Not to Say</option>
+        </select>
+        <br>
+        <select class="form-select" aria-label="Default select example" id="genderPref">
+            <option selected>Who are you looking for?</option>
+            <option value="1">Female</option>
+            <option value="2">Male</option>
+            <option value="3">Trans Female</option>
+            <option value="4">Trans Male</option>
+            <option value="5">Transgender</option>
+            <option value="6">Gender Nonconforming</option>
+            <option value="7">Non-Binary</option>
+            <option value="8">Prefer Not to Say</option>
+        </select>
+        <br>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Tell us a little bit about yourself!</label>
+            <textarea class="form-control" id="bioInput" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary" id="nextBtn">Next</button>
+    </form>
+
+
+    {{!-- SECOND FORM --}}
+    <form id="movieform" class="signup-form hide">
+        <select class="form-select" aria-label="Default select example" id="genreInput">
+            <option selected>What are your top 3 favorite Movie Genres?</option>
+            <option value="1">Action</option>
+            <option value="2">Adventure</option>
+            <option value="3">Drama</option>
+            <option value="4">Thriller</option>
+            <option value="5">War</option>
+            <option value="6">Romance</option>
+            <option value="7">Comedy</option>
+            <option value="8">Crime</option>
+            <option value="9">Biography</option>
+            <option value="10">Music</option>
+            <option value="11">Animation</option>
+            <option value="12">Family</option>
+            <option value="13">Documentary</option>
+            {{!-- add 3 limit restraint, append options to the page --}}
+        </select>
+
+        <br>
+
+        <div class="mb-3">
+            <label for="" class="form-label">What are your Top Three favorite movies?</label>
+            <input type="text" class="form-control" id="favMovieInput" aria-describedby="movieHelp">
+            {{!-- 3 limit constraint, add autofill --}}
+        </div>
+
+        <br>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">What is your favorite Movie Quote?</label>
+            <textarea class="form-control" id="quoteInput" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="movieBtn">Submit</button>
+    </form>
+
 </main>
 
 <script src="/js/signup.js"></script>
-

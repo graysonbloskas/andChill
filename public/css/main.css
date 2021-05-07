@@ -41,6 +41,17 @@ h1 {
     margin-right: auto;
 }
 
+#movieform {
+    background-color: rgb(221, 221, 221, 0.7);
+    border-radius: 30px;
+    padding: 30px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #logo {
     width: 200px;
     height: 200px;
@@ -50,4 +61,8 @@ h1 {
 
 #logo:hover {
     cursor:pointer;
+}
+
+.hide {
+    visibility: hidden;
 }
