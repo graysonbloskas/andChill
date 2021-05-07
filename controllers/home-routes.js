@@ -24,6 +24,7 @@ router.get('/dashboard', async (req, res) => {
     res.render('maindash', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn })
 });
 
+// renders the liked profiles
 router.get('/profiles', async (req, res) => {
     res.render('viewprofiles', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn })
 });
@@ -35,5 +36,10 @@ router.get('/quiz', async (req, res) => {
 router.get('/settings', async (req, res) => {
     res.render('quiz', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn })
 });
+
+// create route to render using a find method that returns the users gender preference
+// create male and female methods first
+//the rendered info is sent back to the front end view called "viewprofiles"
+
 
 module.exports = router;
