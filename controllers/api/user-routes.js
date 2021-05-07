@@ -34,6 +34,58 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/:id' , async (req, res) => {
+   console.log(req.params.id);
+
+    try {
+        const thisUser = await User.findOne({
+            where: {
+                id: req.params.id,
+            },
+        });
+        if (!thisUser) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect userId!'});
+            return;
+        }
+    
+        res
+        .status(200)
+        .json({ user: thisUser});
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+      }
+});
+router.get('/:genderPref/:genre' , async (req, res) => {
+    console.log(req.params.id);
+ 
+     try {
+         const userGenderPref = req.params.genderPref;
+         const userGenre = req.params.genre;
+         const filteredUserData = await User.findAll({
+             where: {
+                gender_id: userGenderPref,
+                genre: userGenre
+             }
+         });
+         if (!filteredUserData) {
+             res
+                 .status(400)
+                 .json({ message: 'Incorrect userId!'});
+             return;
+         }
+     
+         res
+         .status(200)
+         .json({ data: filteredUserData});
+     } catch (err) {
+         console.log(err);
+         res.status(500).json(err);
+       }
+ });
+
 router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 
 
@@ -91,11 +143,31 @@ router.post('/logout', (req, res) => {
 
 
 //get all users
-router.get( '/users', async (req, res) => {
-    User.findAll().then(users => {
-        console.log(users);
-        res.json(users);
-    }) 
-})
+// router.get( '/users', async (req, res) => {
+//     try {
+//         const userMatch = await User.findAll({
+//             include: [
+//                 {
+//                     model: User,
+//                     attributes: ['gender_pref', 'genre'],
+//                 },
+//             ],
+//         });
+
+//         const matches = userMatch.map((user) => 
+//         user.get({ plain: true})
+//         );
+
+//         res.render('viewprofiles', {
+//             users,
+//         });
+//     }
+//     User.findAll().then(users => {
+//         console.log(users);
+//         res.json(users);
+//     }) 
+// })
+
+
 
 module.exports = router;  
