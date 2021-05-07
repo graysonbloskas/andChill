@@ -1,7 +1,18 @@
 const userFetcher = async (event) => {
     event.preventDefault();
-    const users=await fetch("/api/users/users");
-    console.log(users);
+    let currentUserPref;
+    let currentUserGenre;
+    let currentUsersMatches;
+    await fetch("/api/users/1").then(data => data.json()).then(x => {
+        currentUserPref = x.user.gender_pref;
+        currentUserGenre = x.user.genre;
+    });
+    await fetch(`/api/users/${currentUserPref}/${currentUserGenre}`).then(data => data.json()).then(x => {
+       currentUsersMatches = x.data;
+    });
+    console.log(currentUsersMatches);
+    
+    // const filterdData = await fetch('api/users/')
     // document.location.reload()
 }
 
