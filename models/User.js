@@ -62,7 +62,7 @@ User.init(
     },
     gender_pref: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     },
     bio: {
       type: DataTypes.TEXT,
