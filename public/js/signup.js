@@ -72,15 +72,15 @@ const signupFormHandler = async (event) => {
 
     console.log(age);
 
-    if (email && password && name && age && genderId && genderPref && bio) {
+    if (email && password && name && age && genderId && genderPref && bio && genre && fav_movie && movie_quote) {
         const response = await fetch('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ email, password, name, age, genderId, genderPref, bio }),
+            body: JSON.stringify({ email, password, name, age, genderId, genderPref, bio, genre, fav_movie, movie_quote }),
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
             console.log(response);
-            document.location.replace('/signupmov')
+            document.location.replace('/dashboard')
         } else {
             alert('Failed to sign up');
         }

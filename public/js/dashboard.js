@@ -1,7 +1,7 @@
 const userFetcher = async (event) => {
     event.preventDefault();
-    const users=await fetch("/api/users/users") 
-    console.log(users)
+    const users=await fetch("/api/users/users");
+    console.log(users);
     // document.location.reload()
 }
 

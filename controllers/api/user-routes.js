@@ -17,6 +17,9 @@ router.post('/', async (req, res) => {
             gender_id: req.body.genderId,
             gender_pref: req.body.genderPref,
             bio: req.body.bio,
+            genre: req.body.genre,
+            fav_movie: req.body.fav_movie,
+            movie_quote: req.body.movie_quote,
             //Need to add more parameters here based on the models
         });
 
@@ -87,6 +90,7 @@ router.post('/logout', (req, res) => {
 //get all users
 router.get( '/users', async (req, res) => {
     User.findAll().then(users => {
+        console.log(users);
         res.json(users);
     }) 
 })
