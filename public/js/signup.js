@@ -1,16 +1,34 @@
 // submitBtn = document.getElementById("submitBtn");
+var signUpForm = document.getElementById("signupform");
+var movieForm = document.getElementById("movieform");
+var nextBtn = document.getElementById("nextBtn");
 
+let email, password, name, bday, genderId, genderPref, bio, genre, fav_movie, movie_quote;
+
+function displayForm() {
+    event.preventDefault();
+
+    email = document.querySelector('#emailInput').value.trim();
+    password = document.querySelector('#passwordInput').value.trim();
+    name = document.querySelector('#nameInput').value.trim();
+    bday = document.getElementById('bday').value.trim();
+    genderId = document.getElementById('genderId').value;
+    genderPref = document.getElementById('genderPref').value;
+    bio = document.querySelector('#bioInput').value;
+
+    signUpForm.setAttribute('class', "hide");
+    movieForm.removeAttribute('class', "hide");
+    signUpForm.innerHTML = "";
+};
+
+nextBtn.addEventListener("click", displayForm);
 
 const signupFormHandler = async (event) => {
     event.preventDefault();
-
-    const email = document.querySelector('#emailInput').value.trim();
-    const password = document.querySelector('#passwordInput').value.trim();
-    const name = document.querySelector('#nameInput').value.trim();
-    const bday = document.getElementById('bday').value.trim();
-    var genderId = document.getElementById('genderId').value;
-    var genderPref = document.getElementById('genderPref').value;
-    const bio = document.querySelector('#bioInput').value;
+    
+    genre = document.querySelector('#genreInput').value;
+    fav_movie = document.querySelector('#favMovieInput').value;
+    movie_quote = document.querySelector('#quoteInput').value;
 
     //Console log EVERYTHING
     // console.log(email);
