@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
   filename: (req, file, cb) => {
     //add username from user model when refactoring
     //timestamp and username prefixes added to original filename to make sure duplicates never occur
-    cb(null, `${Date.now()}-stevesnyder-${file.originalname}`);
+    cb(null, `${Date.now()}-${file.originalname}`);
   },
 });
 
