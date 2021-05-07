@@ -5,14 +5,20 @@ const userFetcher = async (event) => {
     // document.location.reload()
 }
 
-// const sequelize = require('../../config/connection')
-// const getBtn = document.getElementById("get-matches") 
-// const getUsers = () => {
-//     connection.query('SELECT * FROM user', (err, data)=> {
-//         if (err) throw err;
-//         console.table(data)
-//     })
-// }
-// getBtn.addEventListener("click", getUsers)
-
 document.querySelector("#get-matches").addEventListener("click", userFetcher)
+
+
+const logout = async () => {
+    const response = await fetch('/api/users/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+  
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert('Failed to log out.');
+    }
+  };
+  
+  document.querySelector('#logout').addEventListener('click', logout);
