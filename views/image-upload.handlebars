@@ -1,34 +1,34 @@
 <main>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 mt-3">
-          <h4>Node.js upload images</h4>
-
-          <form
-            class="mt-4"
-            action="/api/users/upload"
-            method="POST"
-            enctype="multipart/form-data"
-          >
-            <div class="form-group">
-              <input
-                type="file"
-                name="file"
-                id="input-files"
-                class="form-control-file border"
-              />
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <div class="card" style="background-color: rgba(255, 255, 255, 0.69);">
+          <div class="card-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8 mt-3">
+                  <h4>Upload your Profile Photos</h4>
+                  <p>Square photos work best! (think Instagram)</p>
+                  <form class="mt-4" action="/api/users/upload" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <input type="file" name="file" id="input-files" class="form-control-file border" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="preview-images"></div> {{!-- may need to style inserted image width --}}
+                </div>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="preview-images"></div> {{!-- may need to style inserted image width --}}
+          </div>
         </div>
       </div>
     </div>
+  </div>
 </main>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
