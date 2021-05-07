@@ -38,7 +38,7 @@ router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 
 
 //Login
-router.post('/dashboard', async (req, res) => {
+router.post('/login', async (req, res) => {
     try {
         const dbUserData = await User.findOne({
             where: {
