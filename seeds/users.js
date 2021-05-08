@@ -9,7 +9,7 @@ const userdata = [
       gender_id: 2,
       gender_pref: 1,
       bio: 'I like long walks on the beach.',
-      genre: "0",
+      genre: "6",
       fav_movie: 'Star Wars, The Dark Knight, 1917',
       movie_quote: 'Do or do not, there is no try'
     },
@@ -21,7 +21,7 @@ const userdata = [
       gender_id: 2,
       gender_pref: 1,
       bio: 'Marvel is life.',
-      genre: "0",
+      genre: "6",
       fav_movie: 'Black Panther, Avengers, Captain America',
       movie_quote: 'I still believe in heroes.'
     },
