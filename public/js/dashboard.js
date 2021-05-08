@@ -45,9 +45,13 @@ const logout = async () => {
 //this is our update route
   const test = async () => {
       console.log("Clicky click")
+      const userBio = document.getElementById('bioInput').value;
       const response = await fetch('/api/users/update', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          bio: userBio || ''
+        })
       });
     
       if (response.ok) {
@@ -58,4 +62,4 @@ const logout = async () => {
       }
   }
   
-  document.querySelector('#updateBtn').addEventListener('click', test);
+  // document.querySelector('#updateBtn').addEventListener('click', test);
