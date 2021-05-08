@@ -58,6 +58,7 @@ router.get('/:id' , async (req, res) => {
         res.status(500).json(err);
       }
 });
+
 router.get('/:genderPref/:genre' , async (req, res) => {
     console.log(req.params.id);
  
@@ -85,8 +86,11 @@ router.get('/:genderPref/:genre' , async (req, res) => {
          res.status(500).json(err);
        }
  });
-
-router.post("/upload", upload.single("file"), uploadController.uploadFiles);
+// need to pass in ID
+router.post("/upload", upload.single("file"), (req, res) => {
+    console.log(req);
+    uploadController.uploadFiles;
+});
 
 
 //Login
@@ -139,7 +143,91 @@ router.post('/logout', (req, res) => {
       res.status(404).end();
     }
   });
+
+// router.put('/update', async (req, res) => {
+//     console.log("you've reached the holy grail")
+//     try {
+//         if (req.session.loggedIn) {
+//             const dbUserData = await User.create({
+//              bio: req.body.bio,
+//         } else {
+//             throw new Exception("not logged in");
+//         }
+    
+//       });
   
+//       req.session.save(() => {
+//         req.session.loggedIn = true;
+  
+//         res.status(200).json(dbUserData);
+//       });
+//     } catch (err) {
+//       console.log(err);
+//       res.status(500).json(err);
+//     } 
+//   });
+  
+router.get('/update', async (req, res) => {
+    console.log('updategetroute')
+    try {
+        const thisUser = await User.findOne({
+            where: {
+                id: req.session.loggedIn,
+            },
+        });
+        if (!thisUser) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect userId!'});
+            return;
+        }
+        res
+        .status(200)
+        .json({ user: thisUser});
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+      }
+})
+
+  router.put('/update', async (req, res) => {
+      console.log('this is the holy grail')
+    //   try {
+    //       if (req.session.loggedIn) {
+    //           const dbUserData = await User.update({
+    //               bio: req.body.bio,
+    //           })
+        
+    //       } else {
+    //           throw new Exception("not logged in")
+    //       }
+    //       req.session.save(() => {
+    //           req.session.loggedIn = true;
+    //           res.status(200).json(dbUserData);
+    //       })
+    //   } catch (err) {
+    //       console.log(err);
+    //       res.status(500).json(err);
+    //   }
+    console.log("**********",req.session);
+
+    try {
+        const userUpdate = await User.update(
+            {
+                bio: req.body.bio,
+            },
+            {
+                where: {
+                    id: req.session.user_id,
+                }
+            })
+            res.status(200).json(userUpdate)
+    } catch (err) {
+        console.log(err)
+        res.status(400).json(err);
+    }
+  });
+
 
 
 //get all users

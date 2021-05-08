@@ -1,9 +1,10 @@
-const userFetcher = async (event) => {
+const userFetcher = async (event, userId) => {
+  console.log(userId);
     event.preventDefault();
     let currentUserPref;
     let currentUserGenre;
     let currentUsersMatches;
-    await fetch("/api/users/1").then(data => data.json()).then(x => {
+    await fetch(`/api/users/${userId}`).then(data => data.json()).then(x => {
         currentUserPref = x.user.gender_pref;
         currentUserGenre = x.user.genre;
     });
@@ -18,7 +19,7 @@ const userFetcher = async (event) => {
 
 // document.querySelector("#get-matches").addEventListener("click", userFetcher)
 
-
+//logout route
 const logout = async () => {
     const response = await fetch('/api/users/logout', {
         method: 'POST',
@@ -34,15 +35,34 @@ const logout = async () => {
 
 document.querySelector('#logout').addEventListener('click', logout);
 
-const update = async () => {
-    document.location.replace('/updateprofile')
-}
 
-document.querySelector('#update').addEventListener('click', update);
+  //going to the update page
+  const update = async () => {
+      document.location.replace('/updateprofile')
+  }
 
 
-const test = async () => {
-    console.log("Clicky click")
-}
 
-document.querySelector('#updateBtn').addEventListener('click', test);
+
+//this is our update route
+  const test = async () => {
+      console.log("Clicky click")
+      const userBio = document.getElementById('bioInput').value;
+      const response = await fetch('/api/users/update', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          bio: userBio || ''
+        })
+      });
+    
+      if (response.ok) {
+        console.log("Congratulations, you did it!")
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to update bio.');
+      }
+  }
+  
+  // document.querySelector('#updateBtn').addEventListener('click', test);
+
