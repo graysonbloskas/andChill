@@ -8,10 +8,10 @@ const userFetcher = async (event) => {
         currentUserGenre = x.user.genre;
     });
     await fetch(`/api/users/${currentUserPref}/${currentUserGenre}`).then(data => data.json()).then(x => {
-       currentUsersMatches = x.data;
+        currentUsersMatches = x.data;
     });
     console.log(currentUsersMatches);
-    
+
     // const filterdData = await fetch('api/users/')
     // document.location.reload()
 }
@@ -21,28 +21,28 @@ const userFetcher = async (event) => {
 
 const logout = async () => {
     const response = await fetch('/api/users/logout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
     });
-  
+
     if (response.ok) {
-      document.location.replace('/');
+        document.location.replace('/');
     } else {
-      alert('Failed to log out.');
+        alert('Failed to log out.');
     }
-  };
-  
-  document.querySelector('#logout').addEventListener('click', logout);
+};
 
-  const update = async () => {
-      document.location.replace('/updateprofile')
-  }
+document.querySelector('#logout').addEventListener('click', logout);
 
-  document.querySelector('#update').addEventListener('click', update);
+const update = async () => {
+    document.location.replace('/updateprofile')
+}
+
+document.querySelector('#update').addEventListener('click', update);
 
 
-  const test = async () => {
-      console.log("Clicky click")
-  }
-  
-  document.querySelector('#updateBtn').addEventListener('click', test);
+const test = async () => {
+    console.log("Clicky click")
+}
+
+document.querySelector('#updateBtn').addEventListener('click', test);
