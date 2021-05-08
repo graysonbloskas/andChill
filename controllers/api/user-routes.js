@@ -7,7 +7,7 @@ const upload = require("../../middleware/img.upload");
 router.post('/', async (req, res) => {
     console.log(req.body)
     try {
-        
+
         const dbUserData = await User.create({
             //UPDATE THIS
             email: req.body.email,
@@ -34,8 +34,8 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.get('/:id' , async (req, res) => {
-   console.log(req.params.id);
+router.get('/:id', async (req, res) => {
+    console.log(req.params.id);
 
     try {
         const thisUser = await User.findOne({
@@ -46,46 +46,46 @@ router.get('/:id' , async (req, res) => {
         if (!thisUser) {
             res
                 .status(400)
-                .json({ message: 'Incorrect userId!'});
+                .json({ message: 'Incorrect userId!' });
             return;
         }
-    
+
         res
-        .status(200)
-        .json({ user: thisUser});
+            .status(200)
+            .json({ user: thisUser });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
-      }
+    }
 });
 
-router.get('/:genderPref/:genre' , async (req, res) => {
+router.get('/:genderPref/:genre', async (req, res) => {
     console.log(req.params.id);
- 
-     try {
-         const userGenderPref = req.params.genderPref;
-         const userGenre = req.params.genre;
-         const filteredUserData = await User.findAll({
-             where: {
+
+    try {
+        const userGenderPref = req.params.genderPref;
+        const userGenre = req.params.genre;
+        const filteredUserData = await User.findAll({
+            where: {
                 gender_id: userGenderPref,
                 genre: userGenre
-             }
-         });
-         if (!filteredUserData) {
-             res
-                 .status(400)
-                 .json({ message: 'Incorrect userId!'});
-             return;
-         }
-     
-         res
-         .status(200)
-         .json({ data: filteredUserData});
-     } catch (err) {
-         console.log(err);
-         res.status(500).json(err);
-       }
- });
+            }
+        });
+        if (!filteredUserData) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect userId!' });
+            return;
+        }
+
+        res
+            .status(200)
+            .json({ data: filteredUserData });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 // need to pass in ID
 router.post("/upload", upload.single("file"), (req, res) => {
     console.log(req);
@@ -105,7 +105,7 @@ router.post('/login', async (req, res) => {
         if (!dbUserData) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or password. Please try again!'});
+                .json({ message: 'Incorrect email or password. Please try again!' });
             return;
         }
 
@@ -114,7 +114,7 @@ router.post('/login', async (req, res) => {
         if (!validPassword) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or password. Please try again!'});
+                .json({ message: 'Incorrect email or password. Please try again!' });
             return;
         }
 
@@ -124,49 +124,26 @@ router.post('/login', async (req, res) => {
             req.session.user = dbUserData;
             // res.render('dashboard', {dbUserData});
             res
-              .status(200)
-              .json({ user: dbUserData, message: 'You are now logged in!' });
-          });
+                .status(200)
+                .json({ user: dbUserData, message: 'You are now logged in!' });
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
-      }
+    }
 });
 
 // Logout
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
     } else {
-      res.status(404).end();
+        res.status(404).end();
     }
-  });
+});
 
-// router.put('/update', async (req, res) => {
-//     console.log("you've reached the holy grail")
-//     try {
-//         if (req.session.loggedIn) {
-//             const dbUserData = await User.create({
-//              bio: req.body.bio,
-//         } else {
-//             throw new Exception("not logged in");
-//         }
-    
-//       });
-  
-//       req.session.save(() => {
-//         req.session.loggedIn = true;
-  
-//         res.status(200).json(dbUserData);
-//       });
-//     } catch (err) {
-//       console.log(err);
-//       res.status(500).json(err);
-//     } 
-//   });
-  
 router.get('/update', async (req, res) => {
     console.log('updategetroute')
     try {
@@ -178,38 +155,21 @@ router.get('/update', async (req, res) => {
         if (!thisUser) {
             res
                 .status(400)
-                .json({ message: 'Incorrect userId!'});
+                .json({ message: 'Incorrect userId!' });
             return;
         }
         res
-        .status(200)
-        .json({ user: thisUser});
+            .status(200)
+            .json({ user: thisUser });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
-      }
+    }
 })
 
-  router.put('/update', async (req, res) => {
-      console.log('this is the holy grail')
-    //   try {
-    //       if (req.session.loggedIn) {
-    //           const dbUserData = await User.update({
-    //               bio: req.body.bio,
-    //           })
-        
-    //       } else {
-    //           throw new Exception("not logged in")
-    //       }
-    //       req.session.save(() => {
-    //           req.session.loggedIn = true;
-    //           res.status(200).json(dbUserData);
-    //       })
-    //   } catch (err) {
-    //       console.log(err);
-    //       res.status(500).json(err);
-    //   }
-    console.log("**********",req.session);
+router.put('/update', async (req, res) => {
+    console.log('this is the holy grail')
+    console.log("**********", req.session);
 
     try {
         const userUpdate = await User.update(
@@ -221,41 +181,41 @@ router.get('/update', async (req, res) => {
                     id: req.session.user_id,
                 }
             })
-            res.status(200).json(userUpdate)
+        res.status(200).json(userUpdate)
     } catch (err) {
         console.log(err)
         res.status(400).json(err);
     }
-  });
+});
+
+router.delete('/bye', async (req, res) => {
+    console.log('Hey guys, I just lost the game')
+
+    try {
+        const userDelete = await User.destroy(
+            // {
+            //     email: req.body.email,
+            //     password: req.body.password,
+            //     first_name: req.body.name,
+            //     age: req.body.age,
+            //     gender_id: req.body.genderId,
+            //     gender_pref: req.body.genderPref,
+            //     bio: req.body.bio,
+            //     genre: req.body.genre,
+            //     fav_movie: req.body.fav_movie,
+            //     movie_quote: req.body.movie_quote,
+            // },
+            {
+                where: {
+                    id: req.session.user_id,
+                }
+            })
+        res.status(200).json(userDelete)
+    } catch (err) {
+        console.log(err)
+        res.status(400).json(err);
+    }
+});
 
 
-
-//get all users
-// router.get( '/users', async (req, res) => {
-//     try {
-//         const userMatch = await User.findAll({
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['gender_pref', 'genre'],
-//                 },
-//             ],
-//         });
-
-//         const matches = userMatch.map((user) => 
-//         user.get({ plain: true})
-//         );
-
-//         res.render('viewprofiles', {
-//             users,
-//         });
-//     }
-//     User.findAll().then(users => {
-//         console.log(users);
-//         res.json(users);
-//     }) 
-// })
-
-
-
-module.exports = router;  
+module.exports = router;
