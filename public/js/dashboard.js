@@ -42,7 +42,7 @@ const logout = async () => {
 
 
   const test = async () => {
-      console.log("Clicky clicky button")
+      console.log("Clicky click")
   }
   
   document.querySelector('#updateBtn').addEventListener('click', test);
