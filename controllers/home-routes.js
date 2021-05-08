@@ -22,7 +22,7 @@ router.get("/signupimg", async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
     console.log(req.session.user);
-    
+    // if user.session, then allow them to access
     res.render('maindash', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user })
 });
 

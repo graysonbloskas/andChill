@@ -85,8 +85,11 @@ router.get('/:genderPref/:genre' , async (req, res) => {
          res.status(500).json(err);
        }
  });
-
-router.post("/upload", upload.single("file"), uploadController.uploadFiles);
+// need to pass in ID
+router.post("/upload", upload.single("file"), (req, res) => {
+    console.log(req);
+    uploadController.uploadFiles;
+});
 
 
 //Login

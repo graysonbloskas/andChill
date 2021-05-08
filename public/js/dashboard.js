@@ -1,9 +1,10 @@
-const userFetcher = async (event) => {
+const userFetcher = async (event, userId) => {
+  console.log(userId);
     event.preventDefault();
     let currentUserPref;
     let currentUserGenre;
     let currentUsersMatches;
-    await fetch("/api/users/1").then(data => data.json()).then(x => {
+    await fetch(`/api/users/${userId}`).then(data => data.json()).then(x => {
         currentUserPref = x.user.gender_pref;
         currentUserGenre = x.user.genre;
     });
@@ -16,7 +17,7 @@ const userFetcher = async (event) => {
     // document.location.reload()
 }
 
-document.querySelector("#get-matches").addEventListener("click", userFetcher)
+// document.querySelector("#get-matches").addEventListener("click", userFetcher)
 
 
 const logout = async () => {
