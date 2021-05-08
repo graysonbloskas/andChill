@@ -209,6 +209,7 @@ router.get('/update', async (req, res) => {
     //       console.log(err);
     //       res.status(500).json(err);
     //   }
+    console.log("**********",req.session);
 
     try {
         const userUpdate = await User.update(
@@ -217,7 +218,7 @@ router.get('/update', async (req, res) => {
             },
             {
                 where: {
-                    id: req.session.loggedIn,
+                    id: req.session.user_id,
                 }
             })
             res.status(200).json(userUpdate)
