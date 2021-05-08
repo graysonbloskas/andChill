@@ -26,6 +26,11 @@ router.get('/dashboard', async (req, res) => {
     res.render('maindash', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user })
 });
 
+router.get('/updateprofile', async (req, res) => {
+    console.log(req.session.user);
+    res.render('updatebio', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user})
+});
+
 // renders the liked profiles
 router.get('/profiles', async (req, res) => {
     res.render('viewprofiles', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn })
