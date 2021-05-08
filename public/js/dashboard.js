@@ -9,10 +9,10 @@ const userFetcher = async (event, userId) => {
         currentUserGenre = x.user.genre;
     });
     await fetch(`/api/users/${currentUserPref}/${currentUserGenre}`).then(data => data.json()).then(x => {
-       currentUsersMatches = x.data;
+        currentUsersMatches = x.data;
     });
     console.log(currentUsersMatches);
-    
+
     // const filterdData = await fetch('api/users/')
     // document.location.reload()
 }
@@ -22,25 +22,27 @@ const userFetcher = async (event, userId) => {
 //logout route
 const logout = async () => {
     const response = await fetch('/api/users/logout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
     });
-  
+
     if (response.ok) {
-      document.location.replace('/');
+        document.location.replace('/');
     } else {
-      alert('Failed to log out.');
+        alert('Failed to log out.');
     }
-  };
-  
-  document.querySelector('#logout').addEventListener('click', logout);
+};
+
+document.querySelector('#logout').addEventListener('click', logout);
+
 
   //going to the update page
   const update = async () => {
       document.location.replace('/updateprofile')
   }
 
-  document.querySelector('#update').addEventListener('click', update);
+
+
 
 //this is our update route
   const test = async () => {
@@ -63,3 +65,4 @@ const logout = async () => {
   }
   
   // document.querySelector('#updateBtn').addEventListener('click', test);
+
