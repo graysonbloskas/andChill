@@ -26,7 +26,7 @@ router.get('/dashboard', async (req, res) => {
     res.render('maindash', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user })
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/settings', async (req, res) => {
     res.render('accountsettings', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user})
 })
 
