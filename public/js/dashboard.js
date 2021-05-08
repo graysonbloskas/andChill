@@ -16,7 +16,7 @@ const userFetcher = async (event) => {
     // document.location.reload()
 }
 
-document.querySelector("#get-matches").addEventListener("click", userFetcher)
+// document.querySelector("#get-matches").addEventListener("click", userFetcher)
 
 
 const logout = async () => {
@@ -39,3 +39,10 @@ const logout = async () => {
   }
 
   document.querySelector('#update').addEventListener('click', update);
+
+
+  const test = async () => {
+      console.log("Clicky clicky button")
+  }
+  
+  document.querySelector('#updateBtn').addEventListener('click', test);
