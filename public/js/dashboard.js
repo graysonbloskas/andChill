@@ -33,3 +33,9 @@ const logout = async () => {
   };
   
   document.querySelector('#logout').addEventListener('click', logout);
+
+  const update = async () => {
+      document.location.replace('/updateprofile')
+  }
+
+  document.querySelector('#update').addEventListener('click', update);
