@@ -1,5 +1,7 @@
 // const { response } = require("express");
 
+// const { response } = require("express");
+
 const userFetcher = async (event, userId) => {
     console.log(userId);
     event.preventDefault();
@@ -14,6 +16,11 @@ const userFetcher = async (event, userId) => {
         currentUsersMatches = x.data;
     });
     console.log(currentUsersMatches);
+    if (currentUsersMatches.ok) {
+        document.location.replace('/profiles');
+    } else {
+        alert('Failed to get matches');
+    }
 
     // const filterdData = await fetch('api/users/')
     // document.location.reload()
