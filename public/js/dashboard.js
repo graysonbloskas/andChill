@@ -19,7 +19,7 @@ const userFetcher = async (event, userId) => {
 
 // document.querySelector("#get-matches").addEventListener("click", userFetcher)
 
-
+//logout route
 const logout = async () => {
     const response = await fetch('/api/users/logout', {
       method: 'POST',
@@ -35,15 +35,27 @@ const logout = async () => {
   
   document.querySelector('#logout').addEventListener('click', logout);
 
+  //going to the update page
   const update = async () => {
       document.location.replace('/updateprofile')
   }
 
   document.querySelector('#update').addEventListener('click', update);
 
-
+//this is our update route
   const test = async () => {
       console.log("Clicky click")
+      const response = await fetch('/api/users/update', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      if (response.ok) {
+        console.log("Congratulations, you did it!")
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to update bio.');
+      }
   }
   
   document.querySelector('#updateBtn').addEventListener('click', test);
