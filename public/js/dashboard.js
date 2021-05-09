@@ -82,3 +82,10 @@ const byeForNow = async () => {
         alert('You can check out any time you like, but you can never leave');
     }
 }
+
+const main = async () => {
+    console.log("Rattle your jewelry")
+    document.location.replace('/dashboard')
+}
+
+document.querySelector('#dash').addEventListener('click', main);
