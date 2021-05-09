@@ -5,25 +5,8 @@
 const userFetcher = async (event, userId) => {
     console.log(userId);
     event.preventDefault();
-    let currentUserPref;
-    let currentUserGenre;
-    let currentUsersMatches;
-    await fetch(`/api/users/${userId}`).then(data => data.json()).then(x => {
-        currentUserPref = x.user.gender_pref;
-        currentUserGenre = x.user.genre;
-    });
-    await fetch(`/api/users/${currentUserPref}/${currentUserGenre}`).then(data => data.json()).then(x => {
-        currentUsersMatches = x.data;
-    });
-    console.log(currentUsersMatches);
-    if (currentUsersMatches.ok) {
-        document.location.replace('/profiles');
-    } else {
-        alert('Failed to get matches');
-    }
+    document.location.replace('/profiles');
 
-    // const filterdData = await fetch('api/users/')
-    // document.location.reload()
 }
 
 // document.querySelector("#get-matches").addEventListener("click", userFetcher)

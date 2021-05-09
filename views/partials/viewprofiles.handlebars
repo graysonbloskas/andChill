@@ -4,16 +4,18 @@
 {{!-- need html to create the dynamic card for potential matches --}}
 {{!-- need like and dislike button... can work on logic later...dislike should delete profile from view --}}
 
-<body>
-    <div class="dash-box">
-        <div class="container">
-            <div class="intro">
+<div class="col-6">
+    <div class="container">
+        <div class="row">
+            <div class="banner">
                 <div class="row match">
-                    {{#each}}
-                    <div class="col-md-6 col-lg-4 card-item">
+                     <h1>{{user.first_name}}</h1>
+                     {{!-- call userFetch within the each --}}
+                    {{#each currentUsersMatches }}
+                         <div class="col-md-6 col-lg-4 card-item">
                         <div class="box my-5"><img class="rounded-circle" src="./assets/images/grayson_prof.jpg">
-                            <h3 class="name">{{user.first_name}}</h3>
-                            <p class="title">{{user.age}}</p>
+                            <h3 class="name">{{first_name}}</h3>
+                            <p class="title">{{age}}</p>
                             <a class="btn btn-danger" href="" role="button">View Profile</a>
                             <br><br>
                             <button class="btn">
@@ -29,6 +31,11 @@
             </div>
         </div>
     </div>
-</body>
-
+</div>
+<script src="/js/viewprofiles.js"></script>
+<script>
+    window.onload=function(){
+       userFetch({{user.id}});
+    }
+</script>
 {{!-- like needs to send that card to maindash handlebars --}}

@@ -37,15 +37,15 @@ router.get('/updateprofile', async (req, res) => {
 
 // renders the liked profiles
 router.get('/profiles', async (req, res) => {
-    res.render('viewprofiles', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn })
+    res.render('partials/viewprofiles', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user })
 });
 
 router.get('/quiz', async (req, res) => {
-    res.render('quiz', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn })
+    res.render('quiz', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user })
 });
 
 router.get('/settings', async (req, res) => {
-    res.render('quiz', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn })
+    res.render('quiz', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user })
 });
 
 // create route to render using a find method that returns the users gender preference
