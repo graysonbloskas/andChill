@@ -69,6 +69,12 @@
     color: white;
   }
 
+  .aside-button{
+    margin-left: 6rem;
+    background-color: #9b4793;
+    color: white;
+  }
+
   /* Welcome back user card */
   .custom-head {
    min-width: 1000px;
