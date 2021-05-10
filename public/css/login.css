@@ -4,3 +4,7 @@ body {
  flex-direction: column;
  justify-content: center;   
 }
+
+.movie-button {
+    background-color: #9b4793;
+}

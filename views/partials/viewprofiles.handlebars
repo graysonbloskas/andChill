@@ -4,25 +4,26 @@
 {{!-- need html to create the dynamic card for potential matches --}}
 {{!-- need like and dislike button... can work on logic later...dislike should delete profile from view --}}
 
-<div class="col-6">
+<div class="col-6 dash-box">
     <div class="container">
         <div class="row">
             <div class="banner">
                 <div class="row match">
-                     <h1>{{user.first_name}}</h1>
+                     <h1>Hey {{user.first_name}}, here are your matches!</h1>
                      {{!-- call userFetch within the each --}}
                     {{#each userData }}
                          <div class="col-md-6 col-lg-4 card-item">
                         <div class="box my-5"><img class="rounded-circle" src="./assets/images/grayson_prof.jpg">
                             <h3 class="name">{{first_name}}</h3>
                             <p class="title">{{age}}</p>
+                            <p class="title">{{fav_movie}}</p>
                             <a class="btn btn-danger" href="" role="button">View Profile</a>
                             <br><br>
                             <button class="btn">
-                                <img src="./assets/images/dislike-btn-01.svg" alt="" height="75px" width="75px">
+                                <img src="/images/dislike-btn-01.svg" alt="" height="75px" width="75px">
                             </button>
                             <button class="btn">
-                                <img src="./assets/images/like-btn-02.svg" alt="" height="75px" width="75px">
+                                <img src="/images/like-btn-02.svg" alt="" height="75px" width="75px">
                             </button>
                         </div>
                     </div>
