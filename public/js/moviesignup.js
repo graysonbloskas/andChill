@@ -18,7 +18,6 @@ const signupFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            console.log(response);
             document.location.replace('/signupimg')
         }else {
             alert('Failed to sign up');
@@ -26,7 +25,7 @@ const signupFormHandler = async (event) => {
     }
 };
 
-// movieBtn.addEventListener('click', function(){document.location.replace('/dashboard')});
+movieBtn.addEventListener('click', function(){document.location.replace('/dashboard')});
 
 document
     .querySelector('#movieform')

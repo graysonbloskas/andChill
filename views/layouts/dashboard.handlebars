@@ -25,17 +25,17 @@
                     </div>
                     <br /><br />
                     <h5>
-                        <button type="button" class="btn btn-outline-dark" id="dash">
+                        <button type="button" class="btn btn-outline-dark" id="dash" onclick="main(event)">
                             Main Dashboard
                         </button>
                     </h5>
                     <h5>
-                        <button type="button" class="btn btn-outline-dark" id="settings">
+                        <button type="button" class="btn btn-outline-dark" id="settings" onclick="settings(event)">
                             Account Settings
                         </button>
                     </h5>
                     <h5>
-                        <button type="button" class="btn btn-outline-dark" id="update">
+                        <button type="button" class="btn btn-outline-dark" id="update" onclick="update({{user.id}})">
                             Update Profile
                         </button>
                     </h5>
@@ -49,7 +49,7 @@
                             Messages
                         </button>
                     </h5>
-                    <button type="button" class="btn btn-outline-dark" id="logout">Logout</button>
+                    <button type="button" class="btn btn-outline-dark" id="logout" onclick="logout()">Logout</button>
                 </div>
             </div>
         </aside>

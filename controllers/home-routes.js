@@ -21,7 +21,6 @@ router.get("/signupimg", async (req, res) => {
 });
 
 router.get('/dashboard', async (req, res) => {
-    console.log(req.session.user);
     // if user.session, then allow them to access
     res.render('maindash', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user })
 });
@@ -37,7 +36,7 @@ router.get('/updateprofile', async (req, res) => {
 
 // renders the liked profiles
 router.get('/profiles', async (req, res) => {
-    res.render('partials/viewprofiles', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user })
+    res.render('partials/viewprofiles', {layout: "dashboard.handlebars", loggedIn: req.session.loggedIn, user: req.session.user, userData: req.session.data })
 });
 
 router.get('/quiz', async (req, res) => {

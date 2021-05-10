@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
             //UPDATE THIS
             email: req.body.email,
             password: req.body.password,
-            first_name: req.body.name,
+            first_name: req.body._name,
             age: req.body.age,
             gender_id: req.body.genderId,
             gender_pref: req.body.genderPref,
@@ -25,6 +25,7 @@ router.post('/', async (req, res) => {
 
         req.session.save(() => {
             req.session.loggedIn = true;
+            req.session.user = dbUserData;
 
             res.status(200).json(dbUserData);
         });
@@ -49,10 +50,12 @@ router.get('/:id', async (req, res) => {
                 .json({ message: 'Incorrect userId!' });
             return;
         }
-
-        res
-            .status(200)
-            .json({ user: thisUser });
+        req.session.save(() => {
+            req.session.user = thisUser;
+            res
+                .status(200)
+                .json({ user: thisUser });
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -78,9 +81,12 @@ router.get('/:genderPref/:genre', async (req, res) => {
             return;
         }
 
-        res
-            .status(200)
-            .json({ data: filteredUserData });
+        req.session.save(() => {
+            req.session.data = filteredUserData;
+            res
+                .status(200)
+                .json({ data: filteredUserData });
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -144,32 +150,32 @@ router.post('/logout', (req, res) => {
     }
 });
 
-router.get('/update', async (req, res) => {
-    console.log('updategetroute')
-    try {
-        const thisUser = await User.findOne({
-            where: {
-                id: req.session.loggedIn,
-            },
-        });
-        if (!thisUser) {
-            res
-                .status(400)
-                .json({ message: 'Incorrect userId!' });
-            return;
-        }
-        res
-            .status(200)
-            .json({ user: thisUser });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-})
+// router.get('/update', async (req, res) => {
+//     console.log('updategetroute')
+//     try {
+//         const thisUser = await User.findOne({
+//             where: {
+//                 id: req.session.user.id,
+//             },
+//         });
+//         if (!thisUser) {
+//             res
+//                 .status(400)
+//                 .json({ message: 'Incorrect userId!' });
+//             return;
+//         }
+//         res
+//             .status(200)
+//             .json({ user: thisUser });
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).json(err);
+//     }
+// })
 
 router.put('/update', async (req, res) => {
     console.log('this is the holy grail')
-    console.log("**********", req.session);
+    console.log("**********", req.session, req.body);
 
     try {
         const userUpdate = await User.update(
@@ -178,7 +184,7 @@ router.put('/update', async (req, res) => {
             },
             {
                 where: {
-                    id: req.session.user_id,
+                    id: req.session.user.id,
                 }
             })
         res.status(200).json(userUpdate)
@@ -193,21 +199,9 @@ router.delete('/bye', async (req, res) => {
 
     try {
         const userDelete = await User.destroy(
-            // {
-            //     email: req.body.email,
-            //     password: req.body.password,
-            //     first_name: req.body.name,
-            //     age: req.body.age,
-            //     gender_id: req.body.genderId,
-            //     gender_pref: req.body.genderPref,
-            //     bio: req.body.bio,
-            //     genre: req.body.genre,
-            //     fav_movie: req.body.fav_movie,
-            //     movie_quote: req.body.movie_quote,
-            // },
             {
                 where: {
-                    id: req.session.user_id,
+                    id: req.session.user.id,
                 }
             })
         res.status(200).json(userDelete)
