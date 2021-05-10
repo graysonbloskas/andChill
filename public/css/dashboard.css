@@ -1,7 +1,3 @@
-/* .notification-bar {
-    background-color: yellow;
-} */
-
 .dash-box {
     color:#313437;
     background-color:#f0f1f2;
@@ -13,6 +9,10 @@
       font-size:24px;
     }
   }  */
+
+  .card-item {
+    min-width: 300px;
+  }
   .dash-box .match {
     padding:25px 0;
   }
@@ -61,7 +61,33 @@
     margin-left: auto;
     margin-right: auto;
   }
-  /* For mobile phones: */
+
+  /* Start Chillin' Button */
+  #get-matches {
+    margin-left: 6rem;
+    background-color: #9b4793;
+    color: white;
+  }
+
+  /* Welcome back user card */
+  .custom-head {
+   min-width: 1000px;
+  }
+
+  .goodbye {
+    margin-top: 4rem;
+  }
+
+  .banner {
+    text-align: center;
+  }
+
+  .update-bio {
+    margin-top: 5rem;
+  }
+
+  
+  /* For mobile phones:  */
   /* @media only screen and (max-width: 768px) {
     
     [class*="col-"] {
@@ -79,6 +105,7 @@
       display: block
     }
   }
+
 @media only screen and (min-width: 600px) {
 
     [class*="col-"] {
@@ -88,5 +115,5 @@
     .card {
       width: 100%;
       height: 50%;
-    }
+    } 
   }  */
