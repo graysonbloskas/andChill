@@ -20,12 +20,12 @@ Movies.init(
       genre: {
         type: DataTypes.STRING,
         allowNull: false,
-        get() {
-            return this.getDataValue('genre').split(',')
-        },
-        set(val) {
-           this.setDataValue('genre',val.join(','));
-        },
+        // get() {
+        //     return this.getDataValue('genre').split(',')
+        // },
+        // set(val) {
+        //    this.setDataValue('genre',val.join(','));
+        // },
     
       },
       },
