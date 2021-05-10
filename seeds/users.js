@@ -1,5 +1,4 @@
 const { User } = require('../models');
-
 const userdata = [
     {
       email: 'Timmy@mail.com',
@@ -33,7 +32,7 @@ const userdata = [
       gender_id: 2,
       gender_pref: 1,
       bio: 'DC for life',
-      genre: "0",
+      genre: "3",
       fav_movie: 'The Dark Knight, Suicide Squad, Justice League',
       movie_quote: 'I still believe in heroes.'
     },
@@ -45,7 +44,7 @@ const userdata = [
       gender_id: 2,
       gender_pref: 1,
       bio: 'I have a pet gecko.',
-      genre: "0",
+      genre: "2",
       fav_movie: 'Secret Life of Walter Mitty, Limitless, Fast and Furious',
       movie_quote: 'If youre not first youre last'
     },
@@ -57,9 +56,9 @@ const userdata = [
       gender_id: 2,
       gender_pref: 1,
       bio: 'I fish and enjoy being on the water',
-      genre: "0",
+      genre: "2",
       fav_movie: '1917, Forrest Gump, Platoon',
-      movie_quote: 'What’s normal anyways?'
+      movie_quote: 'Whats normal anyways?'
     },
     {
       email: 'tina@mail.com',
@@ -69,9 +68,9 @@ const userdata = [
       gender_id: 1,
       gender_pref: 2,
       bio: 'I like long walks on the beach.',
-      genre: "0",
+      genre: "1",
       fav_movie: '10 Things I Hate About You, The Notebook, Clueless',
-      movie_quote: 'If you’re a bird, I’m a bird.'
+      movie_quote: 'If youre a bird, Im a bird.'
     },
     {
       email: 'Becky@mail.com',
@@ -81,7 +80,7 @@ const userdata = [
       gender_id: 1,
       gender_pref: 2,
       bio: 'Im a registered nurse who has 3 kids',
-      genre: "0",
+      genre: "6",
       fav_movie: '101 Dalmatians, Cinderella, Mulan',
       movie_quote: 'No Matter How The Wind Howls, The Mountain Cannot Bow To It.'
     },
@@ -93,7 +92,7 @@ const userdata = [
       gender_id: 1,
       gender_pref: 2,
       bio: 'Looking for my soulmate, have one son that takes most of my time',
-      genre: "0",
+      genre: "6",
       fav_movie: 'A Time to Kill, The Lincoln Lawyer, The Breakfast',
       movie_quote: 'Yes they deserve to die and I hope they burn in hell!'
     },
@@ -105,7 +104,7 @@ const userdata = [
       gender_id: 1,
       gender_pref: 2,
       bio: 'Nurse by day, Salsa dancer by night',
-      genre: "0",
+      genre: "1",
       fav_movie: 'Star Wars: The Last Jedi, Forrest Gump, Finding Nemo',
       movie_quote: 'Just keep swimming'
     },
@@ -117,12 +116,120 @@ const userdata = [
       gender_id: 1,
       gender_pref: 2,
       bio: 'Teacher and Greys Anatomy superfan',
-      genre: "0",
+      genre: "6",
+      fav_movie: 'Star Wars, The Dark Knight, 1917',
+      movie_quote: 'Frankly, my dear, I dont give a damn.'
+    },
+    {
+      email: 'Ryan@mail.com',
+      password: '$2b$10$P6w98ZLmBz/xag/IOmKEo.312kN/QPgo8jd5XcjsKhOwCtuYdaMj2',
+      first_name: 'Ryan',
+      age: 27,
+      gender_id: 2,
+      gender_pref: 1,
+      bio: 'Teacher and Greys Anatomy superfan',
+      genre: "1",
+      fav_movie: 'Star Wars, The Dark Knight, 1917',
+      movie_quote: 'Frankly, my dear, I dont give a damn.'
+    },
+    {
+      email: 'Kiki@mail.com',
+      password: '$2b$10$P6w98ZLmBz/xag/IOmKEo.312kN/QPgo8jd5XcjsKhOwCtuYdaMj2',
+      first_name: 'Kiki',
+      age: 27,
+      gender_id: 1,
+      gender_pref: 2,
+      bio: 'Teacher and Greys Anatomy superfan',
+      genre: "6",
+      fav_movie: 'Star Wars, The Dark Knight, 1917',
+      movie_quote: 'Frankly, my dear, I dont give a damn.'
+    },
+    {
+      email: 'Marrie@mail.com',
+      password: '$2b$10$P6w98ZLmBz/xag/IOmKEo.312kN/QPgo8jd5XcjsKhOwCtuYdaMj2',
+      first_name: 'Marrie',
+      age: 27,
+      gender_id: 1,
+      gender_pref: 2,
+      bio: 'Teacher and Greys Anatomy superfan',
+      genre: "1",
+      fav_movie: 'Star Wars',
+      movie_quote: 'Frankly, my dear, I dont give a damn.'
+    },
+    {
+      email: 'Peter@mail.com',
+      password: '$2b$10$P6w98ZLmBz/xag/IOmKEo.312kN/QPgo8jd5XcjsKhOwCtuYdaMj2',
+      first_name: 'Peter',
+      age: 27,
+      gender_id: 2,
+      gender_pref: 1,
+      bio: 'Teacher and Greys Anatomy superfan',
+      genre: "6",
+      fav_movie: 'Star Wars, The Dark Knight, 1917',
+      movie_quote: 'Frankly, my dear, I dont give a damn.'
+    },
+    {
+      email: 'Ace@mail.com',
+      password: '$2b$10$P6w98ZLmBz/xag/IOmKEo.312kN/QPgo8jd5XcjsKhOwCtuYdaMj2',
+      first_name: 'Ace',
+      age: 27,
+      gender_id: 2,
+      gender_pref: 1,
+      bio: 'Teacher and Greys Anatomy superfan',
+      genre: "1",
+      fav_movie: 'Star Wars, The Dark Knight, 1917',
+      movie_quote: 'Frankly, my dear, I dont give a damn.'
+    },
+    {
+      email: 'Sherrie@mail.com',
+      password: '$2b$10$P6w98ZLmBz/xag/IOmKEo.312kN/QPgo8jd5XcjsKhOwCtuYdaMj2',
+      first_name: 'Sherrie',
+      age: 27,
+      gender_id: 1,
+      gender_pref: 2,
+      bio: 'Teacher and Greys Anatomy superfan',
+      genre: "7",
+      fav_movie: '1917',
+      movie_quote: 'RUNNNNNN!'
+    },
+    {
+      email: 'Mary@mail.com',
+      password: '$2b$10$P6w98ZLmBz/xag/IOmKEo.312kN/QPgo8jd5XcjsKhOwCtuYdaMj2',
+      first_name: 'Mary',
+      age: 27,
+      gender_id: 1,
+      gender_pref: 2,
+      bio: 'I am a school teacher.',
+      genre: "8",
+      fav_movie: 'Toy Story',
+      movie_quote: 'YOU ARE A TOY'
+    },
+    {
+      email: 'Tal@mail.com',
+      password: '$2b$10$P6w98ZLmBz/xag/IOmKEo.312kN/QPgo8jd5XcjsKhOwCtuYdaMj2',
+      first_name: 'Tal',
+      age: 27,
+      gender_id: 2,
+      gender_pref: 1,
+      bio: 'I run a lot',
+      genre: "9",
+      fav_movie: 'Star Wars, The Dark Knight, 1917',
+      movie_quote: 'Another quote'
+    },
+    {
+      email: 'Kary@mail.com',
+      password: '$2b$10$P6w98ZLmBz/xag/IOmKEo.312kN/QPgo8jd5XcjsKhOwCtuYdaMj2',
+      first_name: 'Kary',
+      age: 27,
+      gender_id: 1,
+      gender_pref: 2,
+      bio: 'Teacher and Greys Anatomy superfan',
+      genre: "6",
       fav_movie: 'Star Wars, The Dark Knight, 1917',
       movie_quote: 'Frankly, my dear, I dont give a damn.'
     },
   ];
-  
+
   const seedUsers = () => User.bulkCreate(userdata);
-  
+
   module.exports = seedUsers;
