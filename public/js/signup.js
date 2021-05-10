@@ -1,16 +1,20 @@
-// submitBtn = document.getElementById("submitBtn");
+ 
+
+
 var signUpForm = document.getElementById("signupform");
 var movieForm = document.getElementById("movieform");
-var nextBtn = document.getElementById("nextBtn");
+var nextBtn = document.getElementById("");
 
-let email, password, name, bday, genderId, genderPref, bio, genre, fav_movie, movie_quote;
+let _data;
 
-function displayForm() {
-    event.preventDefault();
 
+
+let email, password, _name, bday, genderId, genderPref, bio, genre, fav_movie, movie_quote;
+
+function displayForm(data) {
     email = document.querySelector('#emailInput').value.trim();
     password = document.querySelector('#passwordInput').value.trim();
-    name = document.querySelector('#nameInput').value.trim();
+    _name = document.querySelector('#nameInput').value.trim();
     bday = document.getElementById('bday').value.trim();
     genderId = document.getElementById('genderId').value;
     genderPref = document.getElementById('genderPref').value;
@@ -19,9 +23,10 @@ function displayForm() {
     signUpForm.setAttribute('class', "hide");
     movieForm.removeAttribute('class', "hide");
     signUpForm.innerHTML = "";
+
+    setDropdown(data);
 };
 
-nextBtn.addEventListener("click", displayForm);
 
 const signupFormHandler = async (event) => {
     event.preventDefault();
@@ -71,24 +76,80 @@ const signupFormHandler = async (event) => {
     }
 
     console.log(age);
+    console.log("It's fine.  This is fine.")
 
-    if (email && password && name && age && genderId && genderPref && bio && genre && fav_movie && movie_quote) {
+    if (email && password && _name && age && genderId && genderPref && bio && genre && fav_movie && movie_quote) {
         const response = await fetch('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ email, password, name, age, genderId, genderPref, bio, genre, fav_movie, movie_quote }),
+            body: JSON.stringify({ email, password, _name, age, genderId, genderPref, bio, genre, fav_movie, movie_quote }),
             headers: { 'Content-Type': 'application/json' },
         });
+        console.log("For the love of everything help us")
         if (response.ok) {
-            console.log(response);
-            document.location.replace('/dashboard')
+            document.location.replace('/dashboard');
         } else {
             alert('Failed to sign up');
         }
     }
 };
 
-document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+var autofillTargets = function(e) {
+    e.preventDefault();
+    fetch('/api/autocomplete')
+  .then(function (response) {
+    return response.json();
 
-    // submitBtn.addEventListener('click', function () { document.location.replace('/dashboard') });
+  })
+  .then(function (data) {
+    if (data) {
+        displayForm(data);
+    }
+  
+    
+  });
+};
+
+
+
+
+function setDropdown(data) {
+    if(data){
+      _data = data && data.movies.map(x => x.title);
+      new autoComplete({
+        selector: "#favMovieInput",
+        placeHolder: "Search for Movies!",
+        data: {
+            src: _data
+        },
+        resultsList: {
+            noResults: (list, query) => {
+                // Create "No Results" message list element
+                const message = document.createElement("li");
+                message.setAttribute("class", "no_result");
+                // Add message text content
+                message.innerHTML = `<span>Found No Results for "${query}"</span>`;
+                // Add message list element to the list
+                list.appendChild(message);
+            },
+        },
+        resultItem: {
+            element: "li",
+            className: "autoComplete_result",
+            content: (data, element) => {
+                element.setAttribute("data-parent", "food-item");
+            },
+            highlight: {
+                render: true,
+                className: "autoComplete_highlighted"
+            },
+            selected: {
+                className: "autoComplete_selected"
+            }
+        },
+        onSelection: (feedback) => {
+            const input = document.getElementById('favMovieInput');
+            input.value = feedback.selection.value;
+        },
+    });
+  }
+}

@@ -1,15 +1,23 @@
-// const { response } = require("express");
 
-// const { response } = require("express");
 
 const userFetcher = async (event, userId) => {
-    console.log(userId);
     event.preventDefault();
-    document.location.replace('/profiles');
+    let currentUserPref;
+    let currentUserGenre; 
+       await fetch(`/api/users/${userId}`).then(data => data.json()).then(x => {
+            currentUserPref = x.user.gender_pref;
+            currentUserGenre = x.user.genre;
+        });
+        await fetch(`/api/users/${currentUserPref}/${currentUserGenre}`).then(data => data.json()).then(x => {
+           if(!!x) {
+            return document.location.replace('/profiles');
+           }
+           return;
+        });
+ 
 
 }
 
-// document.querySelector("#get-matches").addEventListener("click", userFetcher)
 
 //logout route
 const logout = async () => {
@@ -26,20 +34,21 @@ const logout = async () => {
     }
 };
 
-document.querySelector('#logout').addEventListener('click', logout);
-
 
 //going to the update page
-const update = async () => {
-    console.log("Are you there, God?  It's me, Fiona")
-    document.location.replace('/updateprofile')
+const update = async (userId) => {
+    await fetch(`/api/users/${userId}`).then(data => data.json()).then(x => {
+        if(!!x) {
+            document.location.replace('/updateprofile');
+        }
+    });
 }
 
-document.querySelector('#update').addEventListener('click', update);
 
 //this is our update route
-const test = async () => {
-    console.log("Clicky click")
+const updateUserBio = async (e) => {
+    console.log("Clicky click");
+    e.preventDefault();
     const userBio = document.getElementById('bioInput').value;
     const response = await fetch('/api/users/update', {
         method: 'PUT',
@@ -57,15 +66,14 @@ const test = async () => {
     }
 }
 
-  // document.querySelector('#updateBtn').addEventListener('click', test);
 
 //Going to the delete page
-const settings = async () => {
+const settings = async (e) => {
+    e.preventDefault();
     console.log("Pull the lever, kronk")
-    document.location.replace('/settings')
+    document.location.replace('/settings');
 }
 
-document.querySelector('#settings').addEventListener('click', settings);
 
 //Delete route
 const byeForNow = async () => {
@@ -83,9 +91,8 @@ const byeForNow = async () => {
     }
 }
 
-const main = async () => {
+const main = async (e) => {
+    e.preventDefault();
     console.log("Rattle your jewelry")
     document.location.replace('/dashboard')
 }
-
-document.querySelector('#dash').addEventListener('click', main);

@@ -11,7 +11,7 @@
                 <div class="row match">
                      <h1>{{user.first_name}}</h1>
                      {{!-- call userFetch within the each --}}
-                    {{#each currentUsersMatches }}
+                    {{#each userData }}
                          <div class="col-md-6 col-lg-4 card-item">
                         <div class="box my-5"><img class="rounded-circle" src="./assets/images/grayson_prof.jpg">
                             <h3 class="name">{{first_name}}</h3>
@@ -33,9 +33,5 @@
     </div>
 </div>
 <script src="/js/viewprofiles.js"></script>
-<script>
-    window.onload=function(){
-       userFetch({{user.id}});
-    }
-</script>
+
 {{!-- like needs to send that card to maindash handlebars --}}
