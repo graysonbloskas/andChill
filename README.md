@@ -35,11 +35,11 @@ A dating service which will match users based on their movie watching preference
   
   GitHub: 
 
-  adamalcantara, graysonbloskas, mooreFL, stevesnyder 
+  graysonbloskas, mooreFL, adamalcantara, stevesnyder 
 
   Email 
 
-  alcantaradevelopment@gmail.com 
+  graysonbloskas@gmail.com 
 
   # Images
 
