@@ -9,7 +9,6 @@ router.post('/', async (req, res) => {
     try {
 
         const dbUserData = await User.create({
-            //UPDATE THIS
             email: req.body.email,
             password: req.body.password,
             first_name: req.body._name,
@@ -20,7 +19,6 @@ router.post('/', async (req, res) => {
             genre: req.body.genre,
             fav_movie: req.body.fav_movie,
             movie_quote: req.body.movie_quote,
-            //Need to add more parameters here based on the models
         });
 
         req.session.save(() => {
@@ -92,7 +90,7 @@ router.get('/:genderPref/:genre', async (req, res) => {
         res.status(500).json(err);
     }
 });
-// need to pass in ID
+
 router.post("/upload", upload.single("file"), (req, res) => {
     console.log(req);
     uploadController.uploadFiles;

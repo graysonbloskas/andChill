@@ -27,9 +27,6 @@ Image.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-// Need to add function for Movies
-
-
 
 module.exports = {
     User,

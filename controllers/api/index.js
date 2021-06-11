@@ -1,6 +1,5 @@
 const router = require('express').Router();
 
-//Add routes here
 const userRoutes = require('./user-routes');   
 const autocomplete = require('./autocomplete')
 
